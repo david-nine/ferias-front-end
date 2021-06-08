@@ -11,5 +11,4 @@ export class AvaliacaoGestorComponent implements OnInit {
 
   ngOnInit(): void {
   }
-
 }
