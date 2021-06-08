@@ -2,8 +2,79 @@
 <router-outlet></router-outlet>
 <app-footer></app-footer>
 
-<ul>
-  <li *ngFor="let saldo of saldos">
-      <span>{{saldo.id}}</span> {{saldo.diasDisponiveisDeFerias}}
-  </li>
-</ul>
+<!--
+  <ul>
+    <li *ngFor="let saldo of saldos">
+        <span>{{saldo.id}}</span> {{saldo.diasDisponiveisDeFerias}}
+    </li>
+  </ul>
+-->
+
+<div class="testService">
+  <h2>Exemplo de buscarTodasAsFerias()</h2>
+  <table style="width: 100%">
+    <tr>
+      <th>ID Férias</th>
+      <!--<th>ID Requerimento</th>-->
+      <th>Estado</th>
+      <th>Dias de Férias</th>
+      <th>Dias Vendidos</th>
+      <th>Data Inicio</th>
+      <th>Data Fim</th>
+    </tr>
+    <tr *ngFor="let f of ferias">
+      <td>{{ f.id }}</td>
+      <td>{{ f.estado }}</td>
+      <td>{{ f.dias }}</td>
+      <td>{{ f.diasVendidos }}</td>
+      <td>{{ f.dataInicio }}</td>
+      <td>{{ f.dataFim }}</td>
+    </tr>
+  </table>
+</div>
+
+<div class="testService">
+  <h2>Exemplo de buscarFeriasPorId(5)</h2>
+  <table style="width: 100%">
+    <tr>
+      <th>ID Férias</th>
+      <!--<th>ID Requerimento</th>-->
+      <th>Estado</th>
+      <th>Dias de Férias</th>
+      <th>Dias Vendidos</th>
+      <th>Data Inicio</th>
+      <th>Data Fim</th>
+    </tr>
+    <tr *ngIf="feriasBuscadaPorId">
+      <td>{{ feriasBuscadaPorId.id }}</td>
+      <td>{{ feriasBuscadaPorId.estado }}</td>
+      <td>{{ feriasBuscadaPorId.dias }}</td>
+      <td>{{ feriasBuscadaPorId.diasVendidos }}</td>
+      <td>{{ feriasBuscadaPorId.dataInicio }}</td>
+      <td>{{ feriasBuscadaPorId.dataFim }}</td>
+    </tr>
+  </table>
+</div>
+
+<div class="testService">
+  <h2>Exemplo de buscarTodasAsFeriasPorIdColaborador(666)</h2>
+  <table style="width: 100%">
+    <tr>
+      <th>ID Férias</th>
+      <!--<th>ID Requerimento</th>-->
+      <th>Estado</th>
+      <th>Dias de Férias</th>
+      <th>Dias Vendidos</th>
+      <th>Data Inicio</th>
+      <th>Data Fim</th>
+    </tr>
+    <tr *ngFor="let f of feriasBuscadasPorIdColaborador">
+      <td>{{ f.id }}</td>
+      <td>{{ f.estado }}</td>
+      <td>{{ f.dias }}</td>
+      <td>{{ f.diasVendidos }}</td>
+      <td>{{ f.dataInicio }}</td>
+      <td>{{ f.dataFim }}</td>
+    </tr>
+  </table>
+</div>
