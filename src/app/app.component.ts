@@ -1,4 +1,7 @@
+import { SaldoService } from './saldo.service';
 import { Component } from '@angular/core';
+import { Saldo } from './saldo';
+
 
 @Component({
   selector: 'app-root',
@@ -7,4 +10,17 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'angularProject';
+
+  saldos: Saldo[] = [];
+
+  constructor(private saldoService: SaldoService) {
+  }
+
+  ngOnInit(): void {
+    this.getSaldos();
+  }
+
+  getSaldos() {
+    this.saldoService.getSaldos().subscribe(saldo => this.saldos = saldo);
+  }
 }
