@@ -6,9 +6,6 @@
     --cinza: #e8e4e3;
     outline: 0;
 }
-body{
-    background-color: var(--cinza);
-}
 header{
     text-align: center;
     padding: 1%;
