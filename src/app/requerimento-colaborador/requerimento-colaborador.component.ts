@@ -1,5 +1,5 @@
-import { Component, OnInit } from '@angular/core';
-import { AbstractControl, FormBuilder, FormControl, FormGroup, ValidationErrors, Validators } from '@angular/forms';
+import { Component, OnInit, Directive, Input } from '@angular/core';
+import { FormControl, FormGroup, Validators, NgControl } from '@angular/forms';
 import { Location } from '@angular/common';
 
 @Component({
@@ -7,10 +7,15 @@ import { Location } from '@angular/common';
   templateUrl: './requerimento-colaborador.component.html',
   styleUrls: ['./requerimento-colaborador.component.css']
 })
+
+@Directive({
+  selector: '[disableControl]'
+})
+
 export class RequerimentoColaboradorComponent implements OnInit {
 
-  constructor(private location: Location) { }
-
+  constructor(private location: Location, private ngControl: NgControl) { }
+  condition: boolean = false;
   formRequerimento = new FormGroup({
     data: new FormControl(null, Validators.required),
     diasFerias: new FormControl(null, [Validators.max(30), Validators.required]),
@@ -19,6 +24,11 @@ export class RequerimentoColaboradorComponent implements OnInit {
   })
 
   ngOnInit(): void {
+  }
+
+  @Input() disableControl() {
+    const action = this.condition ? 'disable' : 'enable';
+    this.ngControl.control[action]();
   }
 
   onSubmit(): void{
@@ -32,5 +42,7 @@ export class RequerimentoColaboradorComponent implements OnInit {
   cancelar(){
     this.location.go('');
     window.location.reload(); 
+  }
+  reverter() {
   }
 }
