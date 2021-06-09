@@ -2,6 +2,8 @@ import { Observable } from 'rxjs';
 import { Component } from '@angular/core';
 import { Saldo } from './saldo';
 import { SaldoService } from './saldo.service';
+import { Requerimento } from './requerimento';
+import { RequerimentoService } from './requerimento.service';
 import { Ferias } from './ferias';
 import { FeriasService } from './ferias.service';
 
@@ -26,6 +28,46 @@ export class AppComponent {
     idColaborador: 0,
     diasDisponiveisDeFerias: 0,
   };
+
+  requerimentos: Requerimento[] = [];
+  requerimentoBuscadoPorId: Requerimento = {
+    idGestor: 0,
+    dataAbertura: '',
+    dataFechamento: '',
+    prazoAnalise: '',
+    estado: '',
+    mensagem: '',
+    resposta: '',
+    diasRequisitados: 0,
+    diasVendidos: 0,
+    dataInicioFerias: '',
+  };
+  requerimentosBuscadoPorIdColaborador: Requerimento[] = [];
+  requerimentoCriado: Requerimento = {
+    idGestor: 0,
+    dataAbertura: '',
+    dataFechamento: '',
+    prazoAnalise: '',
+    estado: '',
+    mensagem: '',
+    resposta: '',
+    diasRequisitados: 0,
+    diasVendidos: 0,
+    dataInicioFerias: '',
+  };
+  requerimentoAtualizado: Requerimento = {
+    idGestor: 0,
+    dataAbertura: '',
+    dataFechamento: '',
+    prazoAnalise: '',
+    estado: '',
+    mensagem: '',
+    resposta: '',
+    diasRequisitados: 0,
+    diasVendidos: 0,
+    dataInicioFerias: '',
+  };
+
   ferias: Ferias[] = [];
   feriasBuscadaPorId: Ferias = {
     id: 0,
@@ -42,12 +84,16 @@ export class AppComponent {
 
   constructor(
     private saldoService: SaldoService,
+    private requerimentoService: RequerimentoService,
     private feriasService: FeriasService
   ) {}
 
   ngOnInit(): void {
     this.buscarTodosOsSaldos();
     this.buscarSaldoPorIdColaborador(666);
+    this.buscarTodosOsRequerimentos();
+    this.buscarRequerimentoPorId(10);
+    this.buscarTodosOsRequerimentosPorIdColaborador(666);
     this.buscarTodasAsFerias();
     this.buscarFeriasPorId(5);
     this.buscarTodasAsFeriasPorIdColaborador(666);
@@ -82,6 +128,49 @@ export class AppComponent {
         .atualizarSaldo(saldo)
         .subscribe((saldo) => (this.saldoAtualizado = saldo));
     }
+  }
+
+  buscarTodosOsRequerimentos() {
+    this.requerimentoService
+      .buscarTodosOsRequerimentos()
+      .subscribe((requerimento) => (this.requerimentos = requerimento));
+  }
+
+  buscarRequerimentoPorId(idRequerimento: number) {
+    this.requerimentoService
+      .buscarRequerimentoPorId(idRequerimento)
+      .subscribe(
+        (requerimento) => (this.requerimentoBuscadoPorId = requerimento)
+      );
+  }
+
+  buscarTodosOsRequerimentosPorIdColaborador(idColaborador: number) {
+    this.requerimentoService
+      .buscarTodosOsRequerimentosPorIdColaborador(idColaborador)
+      .subscribe(
+        (requerimento) =>
+          (this.requerimentosBuscadoPorIdColaborador = requerimento)
+      );
+  }
+
+  buscarRequerimentosPorIdEEstadoColaborador() {}
+
+  criarRequerimento(idSaldo: number, requerimento: Requerimento) {
+    this.requerimentoService
+      .criarRequerimento(idSaldo, requerimento)
+      .subscribe((requerimento) => (this.requerimentoCriado = requerimento));
+  }
+
+  desativarRequerimento(idRequerimento: number) {
+    this.requerimentoService.desativarRequerimento(idRequerimento);
+  }
+
+  avaliarRequerimento(idRequerimento: number, estado: string) {
+    this.requerimentoService
+      .avaliarRequerimento(idRequerimento, estado)
+      .subscribe(
+        (requerimento) => (this.requerimentoAtualizado = requerimento)
+      );
   }
 
   buscarTodasAsFerias() {

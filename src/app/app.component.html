@@ -31,6 +31,96 @@
 </div>
 
 <div class="testService">
+  <h2>Exemplo de buscarTodosOsRequerimentos()</h2>
+  <table style="width: 100%">
+    <tr>
+      <th>ID Gestor</th>
+      <th>Data Abertura</th>
+      <th>Data Fechamento</th>
+      <th>Prazo Analise</th>
+      <th>Estado</th>
+      <th>Mensagem</th>
+      <th>Resposta</th>
+      <th>Dias Requisitados</th>
+      <th>Dias Vendidos</th>
+      <th>Data Inicio Ferias</th>
+    </tr>
+    <tr *ngFor="let r of requerimentos">
+      <td>{{ r.idGestor }}</td>
+      <td>{{ r.dataAbertura }}</td>
+      <td>{{ r.dataFechamento }}</td>
+      <td>{{ r.prazoAnalise }}</td>
+      <td>{{ r.estado }}</td>
+      <td>{{ r.mensagem }}</td>
+      <td>{{ r.resposta }}</td>
+      <td>{{ r.diasRequisitados }}</td>
+      <td>{{ r.diasVendidos }}</td>
+      <td>{{ r.dataInicioFerias }}</td>
+    </tr>
+  </table>
+</div>
+
+<div class="testService">
+  <h2>Exemplo de buscarRequerimentoPorId(10)</h2>
+  <table style="width: 100%">
+    <tr>
+      <th>ID Gestor</th>
+      <th>Data Abertura</th>
+      <th>Data Fechamento</th>
+      <th>Prazo Analise</th>
+      <th>Estado</th>
+      <th>Mensagem</th>
+      <th>Resposta</th>
+      <th>Dias Requisitados</th>
+      <th>Dias Vendidos</th>
+      <th>Data Inicio Ferias</th>
+    </tr>
+    <tr *ngIf="requerimentoBuscadoPorId">
+      <td>{{ requerimentoBuscadoPorId.idGestor }}</td>
+      <td>{{ requerimentoBuscadoPorId.dataAbertura }}</td>
+      <td>{{ requerimentoBuscadoPorId.dataFechamento }}</td>
+      <td>{{ requerimentoBuscadoPorId.prazoAnalise }}</td>
+      <td>{{ requerimentoBuscadoPorId.estado }}</td>
+      <td>{{ requerimentoBuscadoPorId.mensagem }}</td>
+      <td>{{ requerimentoBuscadoPorId.resposta }}</td>
+      <td>{{ requerimentoBuscadoPorId.diasRequisitados }}</td>
+      <td>{{ requerimentoBuscadoPorId.diasVendidos }}</td>
+      <td>{{ requerimentoBuscadoPorId.dataInicioFerias }}</td>
+    </tr>
+  </table>
+</div>
+
+<div class="testService">
+  <h2>Exemplo de requerimentosBuscadoPorIdColaborador(666)</h2>
+  <table style="width: 100%">
+    <tr>
+      <th>ID Gestor</th>
+      <th>Data Abertura</th>
+      <th>Data Fechamento</th>
+      <th>Prazo Analise</th>
+      <th>Estado</th>
+      <th>Mensagem</th>
+      <th>Resposta</th>
+      <th>Dias Requisitados</th>
+      <th>Dias Vendidos</th>
+      <th>Data Inicio Ferias</th>
+    </tr>
+    <tr *ngFor="let r of requerimentos">
+      <td>{{ r.idGestor }}</td>
+      <td>{{ r.dataAbertura }}</td>
+      <td>{{ r.dataFechamento }}</td>
+      <td>{{ r.prazoAnalise }}</td>
+      <td>{{ r.estado }}</td>
+      <td>{{ r.mensagem }}</td>
+      <td>{{ r.resposta }}</td>
+      <td>{{ r.diasRequisitados }}</td>
+      <td>{{ r.diasVendidos }}</td>
+      <td>{{ r.dataInicioFerias }}</td>
+    </tr>
+  </table>
+</div>
+
+<div class="testService">
   <h2>Exemplo de buscarTodasAsFerias()</h2>
   <table style="width: 100%">
     <tr>
