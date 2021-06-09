@@ -14,7 +14,6 @@ import { RequerimentoColaboradorComponent } from './requerimento-colaborador/req
 import { AvaliacaoGestorComponent } from './avaliacao-gestor/avaliacao-gestor.component';
 import { FooterComponent } from './footer/footer.component';
 import { HomeComponent } from './home/home.component';
-import { AvaliacaoGestorComponent } from './avaliacao-gestor/avaliacao-gestor.component';
 
 @NgModule({
   declarations: [
