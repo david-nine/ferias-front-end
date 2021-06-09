@@ -33,8 +33,6 @@ header img {
 header p {
   margin-top: 2rem;
   font-size: 1.5rem;
-  text-align: left;
-  padding-left: 20.9%;
 }
 
 main {
@@ -51,16 +49,28 @@ main {
 .seletor-requerimentos {
   display: flex;
   border-radius: 4px;
-  background-color: white;
   justify-content: center;
   align-items: center;
   margin-bottom: 10px;
-  width: 300px;
+  width: auto;
+  height: 40px;
 }
 
-#inicio_ferias {
+#titulo_seletor {
+  display: inline-block;
+  white-space: nowrap;
+  color: white;
+  width: auto;
+  font-size: 1.4rem;
+}
+
+#inicio_ferias_calendar {
   border-radius: 6px;
   margin-left: 10px;
+  font-size: 1.2rem;
+  border-color: transparent;
+  width: auto;
+  height: 110%;
 }
 
 section {
@@ -85,6 +95,10 @@ section {
   width: 90%;
   margin-left: 5%;
   border: var(--cinza) 1.5px solid;
+}
+
+#observacao_colaborador {
+  height: auto;
 }
 
 .formulario legend {
@@ -113,6 +127,20 @@ section {
 .footer_form a {
   list-style: none;
   text-decoration: none;
+  color: black;
+}
+
+.dados_requerimento {
+  display: flex;
+  align-items: flex-end;
+  flex-direction: row;
+}
+
+.dados_requerimento p {
+  margin-left: 5px;
+}
+
+.dados_requerimento label {
   color: black;
 }
 
