@@ -78,3 +78,72 @@
     </tr>
   </table>
 </div>
+
+<div class="testService">
+  <h2>Exemplo de buscarFeriasAUsufruirPorIdColaborador(666)</h2>
+  <table style="width: 100%">
+    <tr>
+      <th>ID Férias</th>
+      <!--<th>ID Requerimento</th>-->
+      <th>Estado</th>
+      <th>Dias de Férias</th>
+      <th>Dias Vendidos</th>
+      <th>Data Inicio</th>
+      <th>Data Fim</th>
+    </tr>
+    <tr *ngFor="let f of feriasAUsufruirBuscadasPorIdColaborador">
+      <td>{{ f.id }}</td>
+      <td>{{ f.estado }}</td>
+      <td>{{ f.dias }}</td>
+      <td>{{ f.diasVendidos }}</td>
+      <td>{{ f.dataInicio }}</td>
+      <td>{{ f.dataFim }}</td>
+    </tr>
+  </table>
+</div>
+
+<div class="testService">
+  <h2>Exemplo de buscarFeriasAUsufruirDosSubordinados(444)</h2>
+  <table style="width: 100%">
+    <tr>
+      <th>ID Férias</th>
+      <!--<th>ID Requerimento</th>-->
+      <th>Estado</th>
+      <th>Dias de Férias</th>
+      <th>Dias Vendidos</th>
+      <th>Data Inicio</th>
+      <th>Data Fim</th>
+    </tr>
+    <tr *ngFor="let f of feriasAUsufruirDosSubordinados">
+      <td>{{ f.id }}</td>
+      <td>{{ f.estado }}</td>
+      <td>{{ f.dias }}</td>
+      <td>{{ f.diasVendidos }}</td>
+      <td>{{ f.dataInicio }}</td>
+      <td>{{ f.dataFim }}</td>
+    </tr>
+  </table>
+</div>
+
+<div class="testService">
+  <h2>Exemplo de buscarFeriasUsufruindoDosSubordinados(444)</h2>
+  <table style="width: 100%">
+    <tr>
+      <th>ID Férias</th>
+      <!--<th>ID Requerimento</th>-->
+      <th>Estado</th>
+      <th>Dias de Férias</th>
+      <th>Dias Vendidos</th>
+      <th>Data Inicio</th>
+      <th>Data Fim</th>
+    </tr>
+    <tr *ngFor="let f of feriasUsufruindoDosSubordinados">
+      <td>{{ f.id }}</td>
+      <td>{{ f.estado }}</td>
+      <td>{{ f.dias }}</td>
+      <td>{{ f.diasVendidos }}</td>
+      <td>{{ f.dataInicio }}</td>
+      <td>{{ f.dataFim }}</td>
+    </tr>
+  </table>
+</div>

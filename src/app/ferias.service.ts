@@ -44,13 +44,62 @@ export class FeriasService {
       );
   }
 
-  buscarFeriasAUsufruirPorIdColaborador(idColaborador: number) {}
+  buscarFeriasAUsufruirPorIdColaborador(
+    idColaborador: number
+  ): Observable<Ferias[]> {
+    const url = `http://localhost:8080/ferias/colaborador/a_usufruir/${idColaborador}`;
+    return this.http
+      .get<Ferias[]>(url)
+      .pipe(
+        catchError(
+          this.handleError<Ferias[]>(
+            'buscarFeriasAUsufruirPorIdColaborador idColaborador=${idColaborador}',
+            []
+          )
+        )
+      );
+  }
 
-  buscarFeriasAUsufruirDosSubordinados(idGestor: number) {}
+  buscarFeriasAUsufruirDosSubordinados(idGestor: number): Observable<Ferias[]> {
+    const url = `http://localhost:8080/ferias/gestor/a_usufruir/${idGestor}`;
+    return this.http
+      .get<Ferias[]>(url)
+      .pipe(
+        catchError(
+          this.handleError<Ferias[]>(
+            'buscarFeriasAUsufruirDosSubordinados idGestor=${idGestor}',
+            []
+          )
+        )
+      );
+  }
 
-  buscarFeriasUsufruindoDosSubordinados(idGestor: number) {}
+  buscarFeriasUsufruindoDosSubordinados(
+    idGestor: number
+  ): Observable<Ferias[]> {
+    const url = `http://localhost:8080/ferias/gestor/usufruindo/${idGestor}`;
+    return this.http
+      .get<Ferias[]>(url)
+      .pipe(
+        catchError(
+          this.handleError<Ferias[]>(
+            'buscarFeriasUsufruindoDosSubordinados idGestor=${idGestor}',
+            []
+          )
+        )
+      );
+  }
 
-  cancelarFerias(idFerias: number) {}
+  cancelarFerias(idFerias: number) {
+    const url = `http://localhost:8080/ferias/{id}${idFerias}`;
+    return this.http
+      .put<Ferias>(url, '')
+      .pipe(
+        catchError(
+          this.handleError<Ferias>(`cancelarFerias idFerias=${idFerias}`)
+        )
+      );
+  }
 
   private handleError<T>(operation = 'operation', result?: T) {
     return (error: any): Observable<T> => {

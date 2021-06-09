@@ -24,6 +24,9 @@ export class AppComponent {
     diasVendidos: 0,
   };
   feriasBuscadasPorIdColaborador: Ferias[] = [];
+  feriasAUsufruirBuscadasPorIdColaborador: Ferias[] = [];
+  feriasAUsufruirDosSubordinados: Ferias[] = [];
+  feriasUsufruindoDosSubordinados: Ferias[] = [];
 
   constructor(
     private saldoService: SaldoService,
@@ -35,6 +38,9 @@ export class AppComponent {
     this.buscarTodasAsFerias();
     this.buscarFeriasPorId(5);
     this.buscarTodasAsFeriasPorIdColaborador(666);
+    this.buscarFeriasAUsufruirPorIdColaborador(666);
+    this.buscarFeriasAUsufruirDosSubordinados(444);
+    this.buscarFeriasUsufruindoDosSubordinados(444);
   }
 
   getSaldos() {
@@ -58,4 +64,27 @@ export class AppComponent {
       this.feriasBuscadasPorIdColaborador = ferias;
     });
   }
+
+  buscarFeriasAUsufruirPorIdColaborador(idColaborador: number) {
+    this.feriasService.buscarFeriasAUsufruirPorIdColaborador(idColaborador).subscribe((ferias) => {
+      this.feriasAUsufruirBuscadasPorIdColaborador = ferias;
+    });
+  }
+
+  buscarFeriasAUsufruirDosSubordinados(idGestor: number) {
+    this.feriasService.buscarFeriasAUsufruirDosSubordinados(idGestor).subscribe((ferias) => {
+      this.feriasAUsufruirDosSubordinados = ferias;
+    });
+  }
+
+  buscarFeriasUsufruindoDosSubordinados(idGestor: number) {
+    this.feriasService.buscarFeriasUsufruindoDosSubordinados(idGestor).subscribe((ferias) => {
+      this.feriasUsufruindoDosSubordinados = ferias;
+    });
+  }
+
+  cancelarFerias(idFerias: number) {
+    this.feriasService.cancelarFerias(idFerias);
+  }
+
 }
