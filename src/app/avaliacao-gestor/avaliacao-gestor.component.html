@@ -21,7 +21,7 @@
     </div>
 
     <section class="formulario">
-      <div>
+      <div *ngFor="let requerimento of requerimentos">
         <form method="POST">
 
           <legend>Dados Requerimento</legend>
@@ -32,22 +32,22 @@
 
             <div class="dados_requerimento">
               <label for="">Colaborador: </label>
-              <p>texto à ser inserido "dinâmico vem do json"</p>
+              <p> </p>
             </div>
 
             <div class="dados_requerimento">
               <label for="">Data início férias: </label>
-              <p></p>
+              <p> {{ requerimento.dataAbertura }} </p>
             </div>
 
             <div class="dados_requerimento">
               <label for="">Data fim férias: </label>
-              <p></p>
+              <p> {{ requerimento.dataFechamento }}</p>
             </div>
 
             <div class="dados_requerimento">
               <label for="">Observação: </label>
-              <p></p>
+              <p> {{ requerimento.mensagem }}</p>
             </div>
 
             <div class="dados_requerimento">
