@@ -42,13 +42,25 @@ main {
   margin-top: -4rem;
 }
 
+.main-body {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
 .seletor-requerimentos {
   display: flex;
+  border-radius: 4px;
+  background-color: white;
   justify-content: center;
+  align-items: center;
+  margin-bottom: 10px;
+  width: 300px;
 }
 
 #inicio_ferias {
   border-radius: 6px;
+  margin-left: 10px;
 }
 
 section {
@@ -130,5 +142,3 @@ section {
   display: flex;
   justify-content: space-between;
 }
-
-

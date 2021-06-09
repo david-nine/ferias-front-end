@@ -1,40 +1,49 @@
 <header>
+
   <div class="cabecalho">
     <a href="/index.html"><img src="/assets/images/botao-voltar.svg" alt="botão voltar" width="50px" height="50px"></a>
     <h1>Avaliação de Férias</h1>
   </div>
+
   <p>Preencha os campos abaixo para localizar e avaliar uma solicitação de férias.</p>
+
 </header>
+
 <main>
-  <div class="seletor-requerimentos">
-    <label for="inicio_ferias">Data das Férias</label>
-    <input type="date" name="inicio_ferias" id="inicio_ferias" placeholder="Não coloque uma data do passado">
-  </div>
-  <section class="formulario">
-    <div>
-      <form method="POST">
-        <legend>Dados Férias</legend>
-        <hr>
-        <label for="saldo">Colaborador</label>
-        <input type="text" name="colaborador" id="colaborador" placeholder="Dinamico vem do JSON" disabled>
-        <label for="saldo">Saldo</label>
-        <input type="text" name="saldo" id="saldo" placeholder="Dinamico vem do JSON" disabled>
-        <label style="display: block; margin-bottom: 0.5rem;" for="mensagem">Mensagem</label>
-        <textarea name="" id="mensagem" cols="40" rows="5" placeholder="Mensagem ao colaborador..."></textarea>
-        <div class="footer_form">
-          <div class="alert_form">
-            <img src="/assets/images/warning.svg" alt="Preencha todos os campos do requerimento" width="35px"
-              height="35px">
-            <p>Importante!<br>Preencha todos os campos.</p>
-          </div>
-          <div class="buttons_form">
-            <button type="submit" class="btn btn-outline-info">Aprovar</button>
-            <button type="button" class="btn btn-outline-danger">Recusar</button>
-          </div>
-        </div>
-      </form>
+
+  <div class="main-body">
+    <div class="seletor-requerimentos">
+      <label for="inicio_ferias">Data das Férias</label>
+      <input type="date" name="inicio_ferias" id="inicio_ferias" placeholder="Não coloque uma data do passado">
     </div>
-  </section>
+
+    <section class="formulario">
+      <div>
+        <form method="POST">
+          <legend>Dados Férias</legend>
+          <hr>
+          <label for="saldo">Colaborador</label>
+          <input type="text" name="colaborador" id="colaborador" placeholder="Dinamico vem do JSON" disabled>
+          <label for="saldo">Saldo</label>
+          <input type="text" name="saldo" id="saldo" placeholder="Dinamico vem do JSON" disabled>
+          <label style="display: block; margin-bottom: 0.5rem;" for="mensagem">Mensagem</label>
+          <textarea name="" id="mensagem" cols="40" rows="5" placeholder="Mensagem ao colaborador..."></textarea>
+          <div class="footer_form">
+            <div class="alert_form">
+              <img src="/assets/images/warning.svg" alt="Preencha todos os campos do requerimento" width="35px"
+                height="35px">
+              <p>Importante!<br>Preencha todos os campos.</p>
+            </div>
+            <div class="buttons_form">
+              <button type="submit" class="btn btn-outline-info">Aprovar</button>
+              <button type="button" class="btn btn-outline-danger">Recusar</button>
+            </div>
+          </div>
+        </form>
+      </div>
+    </section>
+  </div>
+
 </main>
 <footer>
   <div class="footer">
