@@ -8,27 +8,43 @@
 <main>
     <section class="formulario">
         <div>
-            <form [formGroup]="formRequerimento" (ngSubmit)="onSubmit()">
+            <form [formGroup]="requerimentoForm" (ngSubmit)="onSubmit()" novalidate class="needs-validation">
                 <legend>Dados Férias</legend>
                 <hr>
                 <label for="saldo">Saldo</label>
                 <input type="text" name="saldo" id="saldo" 
-                       placeholder="Dinamico vem do JSON" disabled>
-                <label for="inicio_ferias">Data de Inicio das férias</label>
-                <input type="date" name="inicio_ferias" id="inicio_ferias" 
-                       placeholder="Não coloque uma data do passado"
-                       formControlName="data" required>
-                <label for="diasFerias">Dias de férias a tirar</label>
-                <input type="number" min="0" max="30" name="diasFerias" 
-                       id="diasFerias" placeholder="30" formControlName="diasFerias">
+                       placeholder="Dinamico vem do JSON" disabled>   
+
+                <div class="form-group">
+                    <label>Data de inicio das Férias</label>
+                    <input type="date" formControlName="data" [ngClass]="{ 'is-invalid': submitted && f.data.errors }" />
+                    <div *ngIf="submitted && f.data.errors" class="invalid-feedback">
+                        <div *ngIf="f.data.errors.required">A data de início é obrigatória</div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="diasFerias">Dias de férias a tirar</label>
+                    <input type="number" formControlName="diasFerias" [ngClass]="{ 'is-invalid': submitted && f.diasFerias.errors }" />
+                    <div *ngIf="submitted && f.diasFerias.errors" class="invalid-feedback">
+                        <div *ngIf="f.diasFerias.errors.required">Quantidade obrigatória</div>
+                        <div *ngIf="f.diasFerias.errors.max">No máximo 30 dias</div>
+                        <div *ngIf="f.diasFerias.errors.min">No mínimo 5 dias</div>
+                    </div>
+                </div>
                 <input style="display: inline; width: auto;" type="checkbox"
                        name="abono" id="abono" (click)="reverter()" ng-model="checked">
                 <label for="abono" style="margin-left: 0.8rem;">Desejo abonar 1/3 do meu direito de férias</label>
-                <label style="display: block;" for="dias_abono">Dias de abono</label>
-                <input type="number" min="0" max="10" name="dias_abono" 
-                       id="dias_abono" formControllName="diasAbono" 
-                       placeholder="Dias de férias que deseja vender"  
-                       [disableControl]="isDisabled">
+                
+                <div class="form-group">
+                    <label style="display: block;" for="diasAbono">Dias de abono</label>
+                    <input type="number" formControllName="diasAbono" 
+                           placeholder="Dias de férias que deseja vender"
+                           [ngClass]="{ 'is-invalid': submitted && f.diasAbono.errors }" 
+                           [disabled]="isDisabled"/>
+                    <div *ngIf="submitted && f.diasAbono.errors" class="invalid-feedback">
+                        <div *ngIf="f.diasAbono.errors.max">No máximo 10 dias</div>
+                    </div>
+                </div>
                 <label style="display: block; margin-bottom: 0.5rem;" for="mensagem">Mensagem</label>
                 <textarea name="mensagem" id="mensagem" cols="40" rows="5"
                     placeholder="Quero pegar férias neste dia porque..."
@@ -41,7 +57,7 @@
                     </div>
                     <div class="buttons_form">
                         <button type="submit" class="btn btn-outline-info">Enviar</button>
-                        <button type="reset" class="btn btn-outline-danger" (click)="cancelar()">Cancelar</button>
+                        <button type="reset" class="btn btn-outline-danger" [routerLink]="['']">Cancelar</button>
                     </div>
                 </div>
             </form>

@@ -50,7 +50,7 @@ section{
     border-radius: 0.2rem;
     padding: 0.5rem;
     width: 90%;
-    margin-left: 5%;
+    /* margin-left: 5%; */
     border: var(--cinza) 1.5px solid;
 }
 .formulario legend{
@@ -60,7 +60,7 @@ section{
 .formulario label{
     color: #b8b5b4;
     padding-top: 1rem;
-    margin-left: 5%;
+    /* margin-left: 5%; */
 }
 .formulario textarea:focus, input:focus{
     border: #b8b5b4 1.5px solid;

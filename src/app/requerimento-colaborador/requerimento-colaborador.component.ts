@@ -1,5 +1,5 @@
-import { Component, OnInit, Directive, Input } from '@angular/core';
-import { FormControl, FormGroup, Validators, NgControl } from '@angular/forms';
+import { Component, OnInit } from '@angular/core';
+import { FormGroup, Validators, FormBuilder } from '@angular/forms';
 import { Location } from '@angular/common';
 
 @Component({
@@ -8,35 +8,36 @@ import { Location } from '@angular/common';
   styleUrls: ['./requerimento-colaborador.component.css']
 })
 
-@Directive({
-  selector: '[disableControl]'
-})
-
 export class RequerimentoColaboradorComponent implements OnInit {
 
-  constructor(private location: Location, private ngControl: NgControl) { }
-  condition: boolean = false;
-  formRequerimento = new FormGroup({
-    data: new FormControl(null, Validators.required),
-    diasFerias: new FormControl(null, [Validators.max(30), Validators.required]),
-    diasAbono: new FormControl(null, Validators.max(10)),
-    mensagem: new FormControl('', Validators.maxLength(300)),
-  })
+  constructor(
+    private location: Location,
+    private fb: FormBuilder,
+  ) {
+    this.requerimentoForm = this.fb.group({
+      data: [null, Validators.required],
+      diasFerias: [null, [Validators.max(30), Validators.required, Validators.min(5)]],
+      diasAbono: [{value: null, disabled: true}, Validators.max(10)],
+      mensagem: [null, Validators.maxLength(300)],
+    })
+  }
+
+  requerimentoForm: FormGroup;
+  isDisabled = true;
+  submitted = false;
 
   ngOnInit(): void {
   }
 
-  @Input() disableControl() {
-    const action = this.condition ? 'disable' : 'enable';
-    this.ngControl.control[action]();
-  }
-
   onSubmit(): void{
+    this.submitted = true;  
     //this.formRequerimento.value.data;
-    if (this.formRequerimento.valid){
-      console.warn(this.formRequerimento.value);
+    if (this.requerimentoForm.valid){
+      console.warn(this.requerimentoForm.value);
       this.location.go('');
       window.location.reload(); 
+    }else{
+      alert("Preencha ou ajuste os campos necessários")
     }
   }
   cancelar(){
@@ -44,5 +45,8 @@ export class RequerimentoColaboradorComponent implements OnInit {
     window.location.reload(); 
   }
   reverter() {
+    this.isDisabled = !this.isDisabled;
   }
+
+  get f() { return this.requerimentoForm.controls; }
 }
