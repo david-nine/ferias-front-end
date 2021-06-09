@@ -24,7 +24,9 @@
                 </div>
                 <div class="form-group">
                     <label for="diasFerias">Dias de férias a tirar</label>
-                    <input type="number" formControlName="diasFerias" [ngClass]="{ 'is-invalid': submitted && f.diasFerias.errors }" />
+                    <input type="number" formControlName="diasFerias"
+                           placeholder="30" 
+                           [ngClass]="{ 'is-invalid': submitted && f.diasFerias.errors }" />
                     <div *ngIf="submitted && f.diasFerias.errors" class="invalid-feedback">
                         <div *ngIf="f.diasFerias.errors.required">Quantidade obrigatória</div>
                         <div *ngIf="f.diasFerias.errors.max">No máximo 30 dias</div>
