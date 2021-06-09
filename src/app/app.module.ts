@@ -13,6 +13,8 @@ import { NavbarComponent } from './navbar/navbar.component';
 import { RequerimentoColaboradorComponent } from './requerimento-colaborador/requerimento-colaborador.component';
 import { AvaliacaoGestorComponent } from './avaliacao-gestor/avaliacao-gestor.component';
 import { FooterComponent } from './footer/footer.component';
+import { HomeComponent } from './home/home.component';
+import { AvaliacaoGestorComponent } from './avaliacao-gestor/avaliacao-gestor.component';
 
 @NgModule({
   declarations: [
@@ -20,6 +22,7 @@ import { FooterComponent } from './footer/footer.component';
     NavbarComponent,
     RequerimentoColaboradorComponent,
     FooterComponent,
+    HomeComponent,
     AvaliacaoGestorComponent
   ],
   imports: [
