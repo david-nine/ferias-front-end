@@ -16,9 +16,9 @@ export class RequerimentoColaboradorComponent implements OnInit {
   ) {
     this.requerimentoForm = this.fb.group({
       data: [null, Validators.required],
-      diasFerias: [null, [Validators.max(30), Validators.required, Validators.min(5)]],
-      diasAbono: [{value: null, disabled: true}, Validators.max(10)],
-      mensagem: [null, Validators.maxLength(300)],
+      diasFerias: ['', [Validators.max(30), Validators.required, Validators.min(5)]],
+      dias_abono: ['', Validators.max(10)],
+      mensagem: []
     })
   }
 

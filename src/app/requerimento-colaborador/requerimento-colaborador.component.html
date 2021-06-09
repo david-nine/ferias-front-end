@@ -8,13 +8,11 @@
 <main>
     <section class="formulario">
         <div>
-            <form [formGroup]="requerimentoForm" (ngSubmit)="onSubmit()" novalidate class="needs-validation">
+            <form [formGroup]="requerimentoForm" (ngSubmit)="onSubmit()">
                 <legend>Dados Férias</legend>
                 <hr>
                 <label for="saldo">Saldo</label>
-                <input type="text" name="saldo" id="saldo" 
-                       placeholder="Dinamico vem do JSON" disabled>   
-
+                <input type="text" name="saldo" id="saldo" placeholder="Dinamico vem do JSON" disabled>   
                 <div class="form-group">
                     <label>Data de inicio das Férias</label>
                     <input type="date" formControlName="data" [ngClass]="{ 'is-invalid': submitted && f.data.errors }" />
@@ -33,24 +31,21 @@
                         <div *ngIf="f.diasFerias.errors.min">No mínimo 5 dias</div>
                     </div>
                 </div>
-                <input style="display: inline; width: auto;" type="checkbox"
-                       name="abono" id="abono" (click)="reverter()" ng-model="checked">
+                <input style="display: inline; width: auto;" type="checkbox" (click)="reverter()">
                 <label for="abono" style="margin-left: 0.8rem;">Desejo abonar 1/3 do meu direito de férias</label>
-                
                 <div class="form-group">
-                    <label style="display: block;" for="diasAbono">Dias de abono</label>
-                    <input type="number" formControllName="diasAbono" 
+                    <label>Dias abono</label>
+                    <input type="number" formControlName="dias_abono" [disabled]="isDisabled"
                            placeholder="Dias de férias que deseja vender"
-                           [ngClass]="{ 'is-invalid': submitted && f.diasAbono.errors }" 
-                           [disabled]="isDisabled"/>
-                    <div *ngIf="submitted && f.diasAbono.errors" class="invalid-feedback">
-                        <div *ngIf="f.diasAbono.errors.max">No máximo 10 dias</div>
+                           [ngClass]="{ 'is-invalid': submitted && f.dias_abono.errors }"/>
+                    <div *ngIf="submitted && f.dias_abono.errors" class="invalid-feedback">
+                        <div *ngIf="f.dias_abono.errors.max">maximo 10</div>
                     </div>
                 </div>
-                <label style="display: block; margin-bottom: 0.5rem;" for="mensagem">Mensagem</label>
-                <textarea name="mensagem" id="mensagem" cols="40" rows="5"
-                    placeholder="Quero pegar férias neste dia porque..."
-                    formControllName="mensagem"></textarea>
+                <div class="form-group">
+                    <label style="display: block; margin-bottom: 0.5rem;" for="mensagem">Mensagem</label>
+                    <textarea cols="40" rows="5" placeholder="Quero pegar férias neste dia porque..." formControlName="mensagem"></textarea>
+                </div>
                 <div class="footer_form container-fluid">
                     <div class="alert_form">
                         <img src="../../assets/images/warning.svg" alt="Preencha todos os campos do requerimento" width="35px"
