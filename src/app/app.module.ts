@@ -23,7 +23,7 @@ import { FooterComponent } from './footer/footer.component';
     AvaliacaoGestorComponent
   ],
   imports: [
-    ReactiveFormsModule
+    ReactiveFormsModule,
     BrowserModule,
     AppRoutingModule,
     HttpClientModule

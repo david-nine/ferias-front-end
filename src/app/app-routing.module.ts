@@ -2,7 +2,6 @@ import { RequerimentoColaboradorComponent } from './requerimento-colaborador/req
 import { AvaliacaoGestorComponent } from './avaliacao-gestor/avaliacao-gestor.component';
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { RequerimentoColaboradorComponent } from './requerimento-colaborador/requerimento-colaborador.component';
 
 const routes: Routes = [
   { path: '', redirectTo: '/home', pathMatch: 'full' },

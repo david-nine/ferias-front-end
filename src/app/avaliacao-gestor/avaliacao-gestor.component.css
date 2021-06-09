@@ -44,14 +44,12 @@ main {
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content:end  ;
+  justify-content: end;
 }
 
 .seletor-requerimentos {
   display: flex;
   border-radius: 4px;
-  justify-content: center;
-  align-items: center;
   margin-bottom: 10px;
   width: auto;
   height: 40px;
@@ -62,6 +60,8 @@ main {
   white-space: nowrap;
   color: white;
   width: auto;
+  padding-top: 4px;
+  margin: 0px 0px 0px 10px;
   font-size: 1.4rem;
 }
 
@@ -71,11 +71,48 @@ main {
   font-size: 1.2rem;
   border-color: transparent;
   width: auto;
-  height: 110%;
+  height: auto;
 }
 
 #buscar_requerimentos_data_button {
-  width: 20%;
+  background-color: white;
+  height: auto;
+  width: auto;
+  text-align: center;
+  margin: 0px 0px 0px 10px;
+  border-radius: 6px;
+}
+
+#buscar_requerimentos_data_button:hover {
+  background-color: #85f7d4;
+}
+
+#buscar_requerimentos_data_button span {
+  display: inline-block;
+  position: relative;
+  transition: 0.5s;
+}
+
+#buscar_requerimentos_data_button:after {
+  content: '\00bb';
+  position: absolute;
+  opacity: 0;
+  top: 0;
+  right: -20px;
+  transition: 0.5s;
+}
+
+#buscar_requerimentos_data_button:hover span {
+  padding-right: 25px;
+}
+
+#buscar_requerimentos_data_button:hover span:after {
+  opacity: 1;
+  right: 0;
+}
+
+#buscar_requerimentos_data_button:active {
+  background-color: #3e8e41;
 }
 
 section {
