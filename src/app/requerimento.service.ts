@@ -3,6 +3,7 @@ import { Observable, of } from 'rxjs';
 import { catchError, map, tap } from 'rxjs/operators';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Requerimento } from './requerimento';
+import { FormGroup } from '@angular/forms';
 
 @Injectable({
   providedIn: 'root',
@@ -77,14 +78,25 @@ export class RequerimentoService {
       );
   }
 
-  criarRequerimento(
+  criarRequerimento(requerimentoFrom: any): any{
+    let requerimento = {
+      dataAbertura: requerimentoFrom.data,
+      diasRequisitados: requerimentoFrom.diasFerias,
+      diasVendidos: requerimentoFrom.dias_abono,
+      mensagem: requerimentoFrom.mensagem,
+    }
+    return requerimento;
+  }
+
+  salvarRequerimento(
     idSaldo: number,
-    requerimento: Requerimento
+    requerimentoFrom: any
   ): Observable<Requerimento> {
+    let requerimento = this.criarRequerimento(requerimentoFrom);
     const url = `http://localhost:8080/requerimento/${idSaldo}`;
     return this.http
       .post<Requerimento>(url, requerimento, this.httpOptions)
-      .pipe(catchError(this.handleError<Requerimento>('criarRequerimento')));
+      .pipe(catchError(this.handleError<Requerimento>('salvarRequerimento')));
   }
 
   desativarRequerimento(idRequerimento: number): Observable<any> {

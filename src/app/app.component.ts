@@ -155,11 +155,11 @@ export class AppComponent {
 
   buscarRequerimentosPorIdEEstadoColaborador() {}
 
-  criarRequerimento(idSaldo: number, requerimento: Requerimento) {
-    this.requerimentoService
-      .criarRequerimento(idSaldo, requerimento)
-      .subscribe((requerimento) => (this.requerimentoCriado = requerimento));
-  }
+  // criarRequerimento(idSaldo: number, requerimento: Requerimento) {
+  //   this.requerimentoService
+  //     .criarRequerimento(idSaldo, requerimento)
+  //     .subscribe((requerimento) => (this.requerimentoCriado = requerimento));
+  // }
 
   desativarRequerimento(idRequerimento: number) {
     this.requerimentoService.desativarRequerimento(idRequerimento);
