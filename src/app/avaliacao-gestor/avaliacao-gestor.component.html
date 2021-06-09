@@ -1,11 +1,89 @@
-<p>avaliacao-gestor works!
-    jflkjfjkjfjffjwfjwfwjkfjwekfjkwefjkwefjkwefkjwejklfwekljflkwjefjlkwef
-    wflkwjekfklwejfjklwe
+<header>
 
+  <div class="cabecalho">
+    <a href="/index.html"><img src="/assets/images/botao-voltar.svg" alt="botão voltar" width="50px" height="50px"></a>
+    <h1>Avaliação de Requerimentos</h1>
+  </div>
 
-    wklfwejklfkjlwefkjlwekjflwekjlfkjlwefkjlwekjlfwekljfkljflkjefwkljfwkljfw
-    jflkjfjkjfjffjwfjwfwjkfjwekfjkwefjkwefjkwefkjwejklfwekljflkwjefjlkwef
+  <p>Preencha os campos abaixo para localizar e avaliar uma solicitação de férias.</p>
 
+</header>
 
-    wlkefklhewhflkwelkhfklhwfeklhfhklfweklhwklklhklhwfehklfwekwflewefklhwefklhwfehklfhkl
-</p>
+<main>
+
+  <div class="main-body">
+    <div class="seletor-requerimentos">
+
+      <label for="inicio_ferias" id="titulo_seletor">Data das Férias: </label>
+      <input type="date" name="inicio_ferias" id="inicio_ferias_calendar" placeholder="Não coloque uma data do passado">
+      <button id="buscar_requerimentos_data_button"><span>Buscar</span></button>
+
+    </div>
+
+    <section class="formulario">
+      <div>
+        <form method="POST">
+
+          <legend>Dados Requerimento</legend>
+
+          <hr>
+
+          <div id="body_dados_requerimento">
+
+            <div class="dados_requerimento">
+              <label for="">Colaborador: </label>
+              <p>texto à ser inserido "dinâmico vem do json"</p>
+            </div>
+
+            <div class="dados_requerimento">
+              <label for="">Data início férias: </label>
+              <p></p>
+            </div>
+
+            <div class="dados_requerimento">
+              <label for="">Data fim férias: </label>
+              <p></p>
+            </div>
+
+            <div class="dados_requerimento">
+              <label for="">Observação: </label>
+              <p></p>
+            </div>
+
+            <div class="dados_requerimento">
+              <label for="">Saldo férias: </label>
+              <p></p>
+            </div>
+
+          </div>
+
+          <label style="display: block; margin-bottom: 0.5rem;" for="mensagem">Mensagem: </label>
+          <textarea name="" id="mensagem" cols="40" rows="5" placeholder="Mensagem ao colaborador..."></textarea>
+
+          <div class="footer_form">
+
+            <div class="alert_form">
+              <img src="/assets/images/warning.svg" alt="Preencha todos os campos do requerimento" width="35px"
+                height="35px">
+              <p>Importante!<br>Preencha todos os campos.</p>
+            </div>
+
+            <div class="buttons_form">
+              <button type="submit" class="btn btn-outline-info">Aprovar</button>
+              <button type="button" class="btn btn-outline-danger">Recusar</button>
+            </div>
+
+          </div>
+
+        </form>
+      </div>
+    </section>
+  </div>
+
+</main>
+<footer>
+  <div class="footer">
+    <img src="https://www.senior.com.br/wp-content/themes/senior-2019/content/assets/images/logo-senior.svg"
+      alt="Logo Senior">
+  </div>
+</footer>
