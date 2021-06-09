@@ -1,4 +1,8 @@
-*{
-    font-family: 'Courier New', Courier, monospace;
-    font-weight: 600;
+
+.testService {
+  display:flex;
+  align-items: center;
+  flex-direction: column;
+  list-style-type: none;
+  padding: 20px;
 }
