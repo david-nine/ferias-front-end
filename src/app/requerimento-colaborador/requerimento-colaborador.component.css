@@ -1,13 +1,9 @@
 *{
-    margin: 0%;
-    padding: 0%;
+
     font-family: Ubunto, sans-serif;
     --main-bg-color: #20c997;
     --cinza: #e8e4e3;
     outline: 0;
-}
-body{
-    background-color: var(--cinza);
 }
 header{
     text-align: center;
@@ -54,7 +50,7 @@ section{
     border-radius: 0.2rem;
     padding: 0.5rem;
     width: 90%;
-    margin-left: 5%;
+    /* margin-left: 5%; */
     border: var(--cinza) 1.5px solid;
 }
 .formulario legend{
@@ -64,7 +60,7 @@ section{
 .formulario label{
     color: #b8b5b4;
     padding-top: 1rem;
-    margin-left: 5%;
+    /* margin-left: 5%; */
 }
 .formulario textarea:focus, input:focus{
     border: #b8b5b4 1.5px solid;
