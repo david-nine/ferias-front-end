@@ -3,7 +3,7 @@ import { FormGroup, Validators, FormBuilder } from '@angular/forms';
 import { Location } from '@angular/common';
 
 @Component({
-  selector: 'requerimento-colaborador',
+  selector: 'app-requerimento-colaborador',
   templateUrl: './requerimento-colaborador.component.html',
   styleUrls: ['./requerimento-colaborador.component.css']
 })

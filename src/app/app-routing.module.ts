@@ -1,9 +1,13 @@
+import { RequerimentoColaboradorComponent } from './requerimento-colaborador/requerimento-colaborador.component';
+import { AvaliacaoGestorComponent } from './avaliacao-gestor/avaliacao-gestor.component';
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { RequerimentoColaboradorComponent } from './requerimento-colaborador/requerimento-colaborador.component';
 
 const routes: Routes = [
-  {path: 'requerimentoFerias', component: RequerimentoColaboradorComponent},
+  { path: '', redirectTo: '/home', pathMatch: 'full' },
+  { path: 'home', component: RequerimentoColaboradorComponent },
+  { path: 'gestor', component: AvaliacaoGestorComponent }
 ];
 
 @NgModule({
