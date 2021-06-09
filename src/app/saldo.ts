@@ -1,4 +1,4 @@
 export interface Saldo {
-  id: number;
+  idColaborador: number;
   diasDisponiveisDeFerias: number;
 }

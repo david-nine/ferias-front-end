@@ -2,13 +2,33 @@
 <router-outlet></router-outlet>
 <app-footer></app-footer>
 
-<!--
-  <ul>
-    <li *ngFor="let saldo of saldos">
-        <span>{{saldo.id}}</span> {{saldo.diasDisponiveisDeFerias}}
-    </li>
-  </ul>
--->
+<div class="testService">
+  <h2>Exemplo de buscarTodosOsSaldos()</h2>
+  <table style="width: 100%">
+    <tr>
+      <th>ID Colaborador</th>
+      <th>Dias Disponiveis De Ferias</th>
+    </tr>
+    <tr *ngFor="let s of saldos">
+      <td>{{ s.idColaborador }}</td>
+      <td>{{ s.diasDisponiveisDeFerias }}</td>
+    </tr>
+  </table>
+</div>
+
+<div class="testService">
+  <h2>Exemplo de buscarSaldoPorIdColaborador(666)</h2>
+  <table style="width: 100%">
+    <tr>
+      <th>ID Colaborador</th>
+      <th>Dias Disponiveis De Ferias</th>
+    </tr>
+    <tr *ngIf="saldoBuscadoPorId">
+      <td>{{ saldoBuscadoPorId.idColaborador }}</td>
+      <td>{{ saldoBuscadoPorId.diasDisponiveisDeFerias }}</td>
+    </tr>
+  </table>
+</div>
 
 <div class="testService">
   <h2>Exemplo de buscarTodasAsFerias()</h2>

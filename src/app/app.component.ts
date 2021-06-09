@@ -14,6 +14,18 @@ export class AppComponent {
   title = 'angularProject';
 
   saldos: Saldo[] = [];
+  saldoBuscadoPorId: Saldo = {
+    idColaborador: 0,
+    diasDisponiveisDeFerias: 0,
+  };
+  saldoCriado: Saldo = {
+    idColaborador: 0,
+    diasDisponiveisDeFerias: 0,
+  };
+  saldoAtualizado: Saldo = {
+    idColaborador: 0,
+    diasDisponiveisDeFerias: 0,
+  };
   ferias: Ferias[] = [];
   feriasBuscadaPorId: Ferias = {
     id: 0,
@@ -34,7 +46,8 @@ export class AppComponent {
   ) {}
 
   ngOnInit(): void {
-    this.getSaldos();
+    this.buscarTodosOsSaldos();
+    this.buscarSaldoPorIdColaborador(666);
     this.buscarTodasAsFerias();
     this.buscarFeriasPorId(5);
     this.buscarTodasAsFeriasPorIdColaborador(666);
@@ -43,8 +56,32 @@ export class AppComponent {
     this.buscarFeriasUsufruindoDosSubordinados(444);
   }
 
-  getSaldos() {
-    this.saldoService.getSaldos().subscribe((saldo) => (this.saldos = saldo));
+  buscarTodosOsSaldos() {
+    this.saldoService
+      .buscarTodosOsSaldos()
+      .subscribe((saldo) => (this.saldos = saldo));
+  }
+
+  buscarSaldoPorIdColaborador(idColaborador: number) {
+    this.saldoService
+      .buscarSaldoPorIdColaborador(idColaborador)
+      .subscribe((saldo) => {
+        this.saldoBuscadoPorId = saldo;
+      });
+  }
+
+  criarSaldo(saldo: Saldo) {
+    this.saldoService
+      .criarSaldo(saldo)
+      .subscribe((saldo) => (this.saldoCriado = saldo));
+  }
+
+  atualizarSaldo(saldo: Saldo) {
+    if (saldo) {
+      this.saldoService
+        .atualizarSaldo(saldo)
+        .subscribe((saldo) => (this.saldoAtualizado = saldo));
+    }
   }
 
   buscarTodasAsFerias() {
@@ -60,31 +97,38 @@ export class AppComponent {
   }
 
   buscarTodasAsFeriasPorIdColaborador(idColaborador: number) {
-    this.feriasService.buscarTodasAsFeriasPorIdColaborador(idColaborador).subscribe((ferias) => {
-      this.feriasBuscadasPorIdColaborador = ferias;
-    });
+    this.feriasService
+      .buscarTodasAsFeriasPorIdColaborador(idColaborador)
+      .subscribe((ferias) => {
+        this.feriasBuscadasPorIdColaborador = ferias;
+      });
   }
 
   buscarFeriasAUsufruirPorIdColaborador(idColaborador: number) {
-    this.feriasService.buscarFeriasAUsufruirPorIdColaborador(idColaborador).subscribe((ferias) => {
-      this.feriasAUsufruirBuscadasPorIdColaborador = ferias;
-    });
+    this.feriasService
+      .buscarFeriasAUsufruirPorIdColaborador(idColaborador)
+      .subscribe((ferias) => {
+        this.feriasAUsufruirBuscadasPorIdColaborador = ferias;
+      });
   }
 
   buscarFeriasAUsufruirDosSubordinados(idGestor: number) {
-    this.feriasService.buscarFeriasAUsufruirDosSubordinados(idGestor).subscribe((ferias) => {
-      this.feriasAUsufruirDosSubordinados = ferias;
-    });
+    this.feriasService
+      .buscarFeriasAUsufruirDosSubordinados(idGestor)
+      .subscribe((ferias) => {
+        this.feriasAUsufruirDosSubordinados = ferias;
+      });
   }
 
   buscarFeriasUsufruindoDosSubordinados(idGestor: number) {
-    this.feriasService.buscarFeriasUsufruindoDosSubordinados(idGestor).subscribe((ferias) => {
-      this.feriasUsufruindoDosSubordinados = ferias;
-    });
+    this.feriasService
+      .buscarFeriasUsufruindoDosSubordinados(idGestor)
+      .subscribe((ferias) => {
+        this.feriasUsufruindoDosSubordinados = ferias;
+      });
   }
 
   cancelarFerias(idFerias: number) {
     this.feriasService.cancelarFerias(idFerias);
   }
-
 }
