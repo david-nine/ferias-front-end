@@ -9,6 +9,10 @@ import { Requerimento } from './requerimento';
 })
 export class RequerimentoService {
 
+  httpOptions = {
+    headers: new HttpHeaders({ 'Content-Type': 'application/json' }),
+  };
+
   constructor(private http: HttpClient) { }
 
   private handleError<T>(operation = 'operation', result?: T) {
@@ -53,16 +57,22 @@ export class RequerimentoService {
       );
   }
 
+  /**
+   * Esse metodo precisa ser refatorado.
+   * @param idColaborador 
+   * @param estado 
+   * @returns 
+   */
   buscarRequerimentosPorIdEEstadoColaborador(
     idColaborador: number, estado: string
   ): Observable<Requerimento[]> {
-    const url = `http://localhost:8080/requerimento/colaborador/${idColaborador}/estado`;
+    const url = `http://localhost:8080/requerimento/colaborador/${idColaborador}/${estado}`;
     return this.http
-      .get<Requerimento[]>(url, estado)
+      .get<Requerimento[]>(url)
       .pipe(
         catchError(
           this.handleError<Requerimento[]>(
-            'buscarRequerimentosPorIdEEstadoColaborador idColaborador=${idColaborador} estado',
+            'buscarRequerimentosPorIdEEstadoColaborador idColaborador=${idColaborador} estado=${estado}',
             []
           )
         )
