@@ -17,17 +17,23 @@ export class AvaliacaoGestorComponent implements OnInit {
   constructor(
     private requerimentoService: RequerimentoService,
     private saldoService: SaldoService
-    ) { }
+  ) { }
 
   requerimentos: Requerimento[] = [];
   requerimentosPorData: Requerimento[] = [];
+  saldo: Saldo[] = [];
 
   ngOnInit(): void {
     this.buscarTodosRequerimentos();
   }
+  ngOnChanges() {
+    this.buscarSaldoPorIdGestor();
+  }
 
   buscarTodosRequerimentos(): void {
     this.requerimentoService.buscarTodosOsRequerimentos()
-    .subscribe((requerimento) => (this.requerimentos = requerimento));
+      .subscribe((requerimento) => (this.requerimentos = requerimento));
   }
+
+  buscarSaldoPorIdGestor() { }
 }

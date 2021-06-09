@@ -2,7 +2,7 @@
   margin: 0%;
   padding: 0%;
   font-family: Ubunto, sans-serif;
-  --main-bg-color: #20c997;
+  --main-bg-color: #f0f0f7;
   --cinza: #e8e4e3;
   outline: 0;
 }
@@ -45,6 +45,7 @@ main {
   flex-direction: column;
   align-items: center;
   justify-content: end;
+  background-color: #f0f0f7;
 }
 
 .seletor-requerimentos {
@@ -58,7 +59,7 @@ main {
 #titulo_seletor {
   display: inline-block;
   white-space: nowrap;
-  color: white;
+  color: black;
   width: auto;
   padding-top: 4px;
   margin: 0px 0px 0px 10px;
@@ -124,7 +125,10 @@ section {
   width: 45%;
   padding: 3rem;
   border-radius: 1rem;
+  margin-bottom: 5px;
+  border: 1px solid rgba(0, 0, 0, 0.125);
 }
+
 
 .formulario input, textarea, button {
   display: block;
@@ -210,5 +214,6 @@ section {
 
 .cabecalho {
   display: flex;
+  color: black;
   justify-content: space-between;
 }

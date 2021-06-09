@@ -1,11 +1,8 @@
 <header>
 
   <div class="cabecalho">
-    <a href="/index.html"><img src="/assets/images/botao-voltar.svg" alt="botão voltar" width="50px" height="50px"></a>
-    <h1>Avaliação de Requerimentos</h1>
+    <h1 class="mt-4">Controle de Férias</h1>
   </div>
-
-  <p>Preencha os campos abaixo para localizar e avaliar uma solicitação de férias.</p>
 
 </header>
 
@@ -20,8 +17,8 @@
 
     </div>
 
-    <section class="formulario">
-      <div *ngFor="let requerimento of requerimentos">
+    <section class="formulario" *ngFor="let requerimento of requerimentos">
+      <div>
         <form method="POST">
 
           <legend>Dados Requerimento</legend>
@@ -37,12 +34,12 @@
 
             <div class="dados_requerimento">
               <label for="">Data início férias: </label>
-              <p> {{ requerimento.dataAbertura }} </p>
+              <p> {{ requerimento.dataInicioFerias }} </p>
             </div>
 
             <div class="dados_requerimento">
-              <label for="">Data fim férias: </label>
-              <p> {{ requerimento.dataFechamento }}</p>
+              <label for="">Dias requisitados: </label>
+              <p> {{ requerimento.diasRequisitados }}</p>
             </div>
 
             <div class="dados_requerimento">
