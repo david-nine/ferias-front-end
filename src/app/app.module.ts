@@ -14,6 +14,7 @@ import { RequerimentoColaboradorComponent } from './requerimento-colaborador/req
 import { AvaliacaoGestorComponent } from './avaliacao-gestor/avaliacao-gestor.component';
 import { FooterComponent } from './footer/footer.component';
 import { HomeComponent } from './home/home.component';
+import { TestpageServicesComponent } from './testpage-services/testpage-services.component';
 
 @NgModule({
   declarations: [
@@ -22,7 +23,8 @@ import { HomeComponent } from './home/home.component';
     RequerimentoColaboradorComponent,
     FooterComponent,
     HomeComponent,
-    AvaliacaoGestorComponent
+    AvaliacaoGestorComponent,
+    TestpageServicesComponent
   ],
   imports: [
     ReactiveFormsModule,

@@ -12,6 +12,7 @@ import { Component, OnInit } from '@angular/core';
 export class HomeComponent implements OnInit {
   requerimentos: Requerimento[] = [];
   ferias: Ferias[] = [];
+  idColaborador: number = 666;
 
   constructor(
     private requerimentoService: RequerimentoService,
@@ -19,19 +20,19 @@ export class HomeComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
-    this.buscarTodosOsRequerimentos();
-    this.buscarTodasAsFerias();
+    this.buscarTodosOsRequerimentosPorIdColaborador();
+    this.buscarTodasAsFeriasPorIdColaborador();
   }
 
-  buscarTodosOsRequerimentos() {
+  buscarTodosOsRequerimentosPorIdColaborador() {
     this.requerimentoService
-      .buscarTodosOsRequerimentos()
+      .buscarTodosOsRequerimentosPorIdColaborador(this.idColaborador)
       .subscribe((requerimento) => (this.requerimentos = requerimento));
   }
 
-  buscarTodasAsFerias() {
+  buscarTodasAsFeriasPorIdColaborador() {
     this.feriasService
-      .buscarTodasAsFerias()
+      .buscarTodasAsFeriasPorIdColaborador(this.idColaborador)
       .subscribe((ferias) => (this.ferias = ferias));
   }
 }
