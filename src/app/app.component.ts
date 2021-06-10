@@ -32,6 +32,7 @@ export class AppComponent {
   requerimentos: Requerimento[] = [];
   requerimentoBuscadoPorId: Requerimento = {
     idGestor: 0,
+    idColaborador: 0,
     dataAbertura: '',
     dataFechamento: '',
     prazoAnalise: '',
@@ -45,6 +46,7 @@ export class AppComponent {
   requerimentosBuscadoPorIdColaborador: Requerimento[] = [];
   requerimentoCriado: Requerimento = {
     idGestor: 0,
+    idColaborador: 0,
     dataAbertura: '',
     dataFechamento: '',
     prazoAnalise: '',
@@ -57,6 +59,7 @@ export class AppComponent {
   };
   requerimentoAtualizado: Requerimento = {
     idGestor: 0,
+    idColaborador: 0,
     dataAbertura: '',
     dataFechamento: '',
     prazoAnalise: '',
