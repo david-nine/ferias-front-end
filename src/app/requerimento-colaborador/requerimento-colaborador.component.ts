@@ -41,7 +41,6 @@ export class RequerimentoColaboradorComponent implements OnInit {
   submitted = false;
 
   ngOnInit(): void {
-    debugger;
   }
 
   onSubmit(): void{
@@ -77,7 +76,7 @@ export class RequerimentoColaboradorComponent implements OnInit {
       resposta: '',
       dataInicioFerias: requerimentoForm.data,
       diasRequisitados: requerimentoForm.diasFerias,
-      diasVendidos: requerimentoForm.dias_abono,
+      diasVendidos: requerimentoForm.dias_abono? requerimentoForm.dias_abono : 0,
       mensagem: requerimentoForm.mensagem,
     }
     return requerimento;
