@@ -17,7 +17,7 @@
 
     </div>
 
-    <section class="formulario" *ngFor="let requerimento of requerimentos">
+    <section class="formulario" *ngFor="let requerimento of requerimentosPendentes">
       <div>
         <form method="POST">
 
@@ -66,8 +66,8 @@
             </div>
 
             <div class="buttons_form">
-              <button type="submit" class="btn btn-outline-info">Aprovar</button>
-              <button type="button" class="btn btn-outline-danger">Recusar</button>
+              <button type="button" class="btn btn-outline-info" (click)="aprovarRequerimento(requerimento.id)">Aprovar</button>
+              <button type="button" class="btn btn-outline-danger" (click)="recusarRequerimento(requerimento.id)">Recusar</button>
             </div>
 
           </div>

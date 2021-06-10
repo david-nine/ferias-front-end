@@ -22,16 +22,19 @@ export class AvaliacaoGestorComponent implements OnInit, OnChanges {
 
   requerimentos: Requerimento[] = [];
   requerimentosPorData: Requerimento[] = [];
+  requerimentosPendentes: Requerimento[] = [];
   saldos: Saldo[] = [];
 
   ngOnInit(): void {
     this.buscarTodosRequerimentos();
     this.buscarTodosSaldos();
+    this.buscarRequerimentosPendentes();
   }
 
   ngOnChanges(): void {
     this.buscarTodosRequerimentos();
     this.buscarTodosSaldos();
+    this.buscarRequerimentosPendentes();
   }
 
   buscarTodosRequerimentos(): void {
@@ -39,15 +42,14 @@ export class AvaliacaoGestorComponent implements OnInit, OnChanges {
       .subscribe((requerimento) => (this.requerimentos = requerimento));
   }
 
-  // buscarSaldoDiasPorIdColaborador(idColaborador: number): number {
-  //   this.saldos.forEach(element => {
-  //     if(element.idColaborador == idColaborador) {
-  //       return element.diasDisponiveisDeFerias;
-  //     }
-  //     return ele;
-  //   });
-  //   return 0;
-  // }
+  buscarRequerimentosPendentes(): void {
+    for (let index = 0; index < this.requerimentos.length; index++) {
+       const element = this.requerimentos[index];
+       if(element.estado === "PENDENTE") {
+         this.requerimentosPendentes.push(element);
+       }
+    }
+   }
 
   buscarSaldoDiasPorIdColaborador(idColaborador: number): number {
    for (let index = 0; index < this.saldos.length; index++) {
@@ -61,5 +63,15 @@ export class AvaliacaoGestorComponent implements OnInit, OnChanges {
 
   buscarTodosSaldos(): void {
     this.saldoService.buscarTodosOsSaldos().subscribe((saldos) => this.saldos = saldos);
+  }
+
+  aprovarRequerimento(idRequerimento: number) {
+    let novoEstado = "APROVADO";
+    this.requerimentoService.avaliarRequerimento(idRequerimento, novoEstado);
+  }
+
+  recusarRequerimento(idRequerimento: number) {
+    let novoEstado = "RECUSADO";
+    this.requerimentoService.avaliarRequerimento(idRequerimento, novoEstado);
   }
 }
