@@ -11,7 +11,7 @@
   <title>Dashboard - Controle de Férias</title>
   <link rel="icon" type="image/x-icon" href="favicon.ico">
   <link href="https://cdn.jsdelivr.net/npm/simple-datatables@latest/dist/style.css" rel="stylesheet" />
-  <link href="/src/styles.css" rel="stylesheet"/>
+  <link href="/src/styles.css" rel="stylesheet" />
   <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/js/all.min.js"
     crossorigin="anonymous"></script>
 </head>
@@ -39,6 +39,12 @@
         new simpleDatatables.DataTable(datatablesSimple);
       }
     });
+  </script>
+  <script>
+    function desabilitar() {
+      document.getElementById('dias_abono').disabled = !document.getElementById('dias_abono').disabled;
+      document.getElementById('dias_abono').value = '';
+    }
   </script>
 </body>
 
