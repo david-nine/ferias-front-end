@@ -43,12 +43,8 @@ export class AvaliacaoGestorComponent implements OnInit, OnChanges {
   }
 
   buscarRequerimentosPendentes(): void {
-    for (let index = 0; index < this.requerimentos.length; index++) {
-       const element = this.requerimentos[index];
-       if(element.estado === "PENDENTE") {
-         this.requerimentosPendentes.push(element);
-       }
-    }
+    this.requerimentoService.buscarTodosRequerimentosPendentes()
+    .subscribe((requerimentos) => this.requerimentosPendentes = requerimentos);
    }
 
   buscarSaldoDiasPorIdColaborador(idColaborador: number): number {
@@ -67,11 +63,19 @@ export class AvaliacaoGestorComponent implements OnInit, OnChanges {
 
   aprovarRequerimento(idRequerimento: number) {
     let novoEstado = "APROVADO";
-    this.requerimentoService.avaliarRequerimento(idRequerimento, novoEstado);
+    this.requerimentoService.avaliarRequerimento(idRequerimento, novoEstado).subscribe(res => {
+      this.buscarTodosRequerimentos();
+      this.buscarTodosSaldos();
+      this.buscarRequerimentosPendentes();
+    });
   }
 
   recusarRequerimento(idRequerimento: number) {
     let novoEstado = "RECUSADO";
-    this.requerimentoService.avaliarRequerimento(idRequerimento, novoEstado);
+    this.requerimentoService.avaliarRequerimento(idRequerimento, novoEstado).subscribe(res => {
+      this.buscarTodosRequerimentos();
+      this.buscarTodosSaldos();
+      this.buscarRequerimentosPendentes();
+    });
   }
 }
