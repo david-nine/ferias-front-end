@@ -11,13 +11,15 @@
   <title>Dashboard - Controle de Férias</title>
   <link rel="icon" type="image/x-icon" href="favicon.ico">
   <link href="https://cdn.jsdelivr.net/npm/simple-datatables@latest/dist/style.css" rel="stylesheet" />
-  <link href="/src/styles.css" rel="stylesheet" />
+  <link href="/src/styles.css" rel="stylesheet"/>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/js/all.min.js"
     crossorigin="anonymous"></script>
+</head>
 
+<body class="sb-nav-fixed">
+  <app-root></app-root>
   <script>
     window.addEventListener('DOMContentLoaded', event => {
-
       // Toggle the side navigation
       const sidebarToggle = document.body.querySelector('#sidebarToggle');
       if (sidebarToggle) {
@@ -30,7 +32,6 @@
 
     });
   </script>
-
   <script>
     window.addEventListener('DOMContentLoaded', event => {
       const datatablesSimple = document.getElementById('datatablesSimple');
@@ -38,13 +39,7 @@
         new simpleDatatables.DataTable(datatablesSimple);
       }
     });
-
   </script>
-
-</head>
-
-<body class="sb-nav-fixed">
-  <app-root></app-root>
 </body>
 
 </html>

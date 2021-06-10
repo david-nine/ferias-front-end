@@ -32,6 +32,7 @@ export class AppComponent {
   requerimentos: Requerimento[] = [];
   requerimentoBuscadoPorId: Requerimento = {
     idGestor: 0,
+    idColaborador: 0,
     dataAbertura: '',
     dataFechamento: '',
     prazoAnalise: '',
@@ -45,6 +46,7 @@ export class AppComponent {
   requerimentosBuscadoPorIdColaborador: Requerimento[] = [];
   requerimentoCriado: Requerimento = {
     idGestor: 0,
+    idColaborador: 0,
     dataAbertura: '',
     dataFechamento: '',
     prazoAnalise: '',
@@ -57,6 +59,7 @@ export class AppComponent {
   };
   requerimentoAtualizado: Requerimento = {
     idGestor: 0,
+    idColaborador: 0,
     dataAbertura: '',
     dataFechamento: '',
     prazoAnalise: '',
@@ -155,11 +158,11 @@ export class AppComponent {
 
   buscarRequerimentosPorIdEEstadoColaborador() {}
 
-  criarRequerimento(idSaldo: number, requerimento: Requerimento) {
-    this.requerimentoService
-      .criarRequerimento(idSaldo, requerimento)
-      .subscribe((requerimento) => (this.requerimentoCriado = requerimento));
-  }
+  // criarRequerimento(idSaldo: number, requerimento: Requerimento) {
+  //   this.requerimentoService
+  //     .criarRequerimento(idSaldo, requerimento)
+  //     .subscribe((requerimento) => (this.requerimentoCriado = requerimento));
+  // }
 
   desativarRequerimento(idRequerimento: number) {
     this.requerimentoService.desativarRequerimento(idRequerimento);
