@@ -1,5 +1,4 @@
 *{
-
     font-family: Ubunto, sans-serif;
     --main-bg-color: #20c997;
     --cinza: #e8e4e3;
@@ -98,4 +97,7 @@ section{
 .cabecalho{
     display: flex;
     justify-content: space-between;
+}
+body{
+    background-color: #b8b5b4;
 }

@@ -12,7 +12,7 @@
                 <legend>Dados Férias</legend>
                 <hr>
                 <label for="saldo">Saldo</label>
-                <input type="text" name="saldo" id="saldo" placeholder="Dinamico vem do JSON" disabled>   
+                <input type="text" name="saldo" id="saldo" formControlName="saldo">   
                 <div class="form-group">
                     <label>Data de inicio das Férias</label>
                     <input type="date" formControlName="data" [ngClass]="{ 'is-invalid': submitted && f.data.errors }" />
