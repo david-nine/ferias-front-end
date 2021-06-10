@@ -83,7 +83,6 @@ export class RequerimentoService {
     idSaldo: number,
     requerimento: Requerimento
   ): Observable<Requerimento> {
-    debugger;
     const url = `http://localhost:8080/requerimento/${idSaldo}`;
     return this.http
       .post<Requerimento>(url, requerimento, this.httpOptions)
