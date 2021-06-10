@@ -15,7 +15,7 @@ import { from, Observable } from 'rxjs';
 
 export class RequerimentoColaboradorComponent implements OnInit {
 
-  idSaldo: number = 41;
+  idSaldo: number = 1;
   idColaborador: number = 666;
   idGestor: number = 444;
 
