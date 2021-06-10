@@ -1,4 +1,5 @@
 export interface Requerimento {
+    id: number;
     idGestor: number,
     idColaborador: number,
     dataAbertura: string,
