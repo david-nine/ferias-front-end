@@ -79,21 +79,11 @@ export class RequerimentoService {
       );
   }
 
-  criarRequerimento(requerimentoFrom: any): any{
-    let requerimento = {
-      dataInicioFerias: requerimentoFrom.data,
-      diasRequisitados: requerimentoFrom.diasFerias,
-      diasVendidos: requerimentoFrom.dias_abono,
-      mensagem: requerimentoFrom.mensagem,
-    }
-    return requerimento;
-  }
-
   salvarRequerimento(
     idSaldo: number,
-    requerimentoFrom: any
+    requerimento: Requerimento
   ): Observable<Requerimento> {
-    let requerimento = this.criarRequerimento(requerimentoFrom);
+    debugger;
     const url = `http://localhost:8080/requerimento/${idSaldo}`;
     return this.http
       .post<Requerimento>(url, requerimento, this.httpOptions)
