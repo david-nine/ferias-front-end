@@ -44,7 +44,6 @@ main {
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: end;
   background-color: #f0f0f7;
 }
 
@@ -70,6 +69,7 @@ main {
   border-radius: 6px;
   margin-left: 10px;
   font-size: 1.2rem;
+  color: #c2c2c2;
   border-color: transparent;
   width: auto;
   height: auto;

@@ -1,10 +1,11 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnChanges, OnInit } from '@angular/core';
 
 import { RequerimentoService } from './../requerimento.service';
 import { SaldoService } from './../saldo.service';
 
 import { Requerimento } from '../requerimento';
 import { Saldo } from './../saldo';
+import { Observable } from 'rxjs/internal/Observable';
 
 
 @Component({
@@ -12,7 +13,7 @@ import { Saldo } from './../saldo';
   templateUrl: './avaliacao-gestor.component.html',
   styleUrls: ['./avaliacao-gestor.component.css']
 })
-export class AvaliacaoGestorComponent implements OnInit {
+export class AvaliacaoGestorComponent implements OnInit, OnChanges {
 
   constructor(
     private requerimentoService: RequerimentoService,
@@ -21,13 +22,16 @@ export class AvaliacaoGestorComponent implements OnInit {
 
   requerimentos: Requerimento[] = [];
   requerimentosPorData: Requerimento[] = [];
-  saldo: Saldo[] = [];
+  saldos: Saldo[] = [];
 
   ngOnInit(): void {
     this.buscarTodosRequerimentos();
+    this.buscarTodosSaldos();
   }
-  ngOnChanges() {
-    this.buscarSaldoPorIdGestor();
+
+  ngOnChanges(): void {
+    this.buscarTodosRequerimentos();
+    this.buscarTodosSaldos();
   }
 
   buscarTodosRequerimentos(): void {
@@ -35,5 +39,27 @@ export class AvaliacaoGestorComponent implements OnInit {
       .subscribe((requerimento) => (this.requerimentos = requerimento));
   }
 
-  buscarSaldoPorIdGestor() { }
+  // buscarSaldoDiasPorIdColaborador(idColaborador: number): number {
+  //   this.saldos.forEach(element => {
+  //     if(element.idColaborador == idColaborador) {
+  //       return element.diasDisponiveisDeFerias;
+  //     }
+  //     return ele;
+  //   });
+  //   return 0;
+  // }
+
+  buscarSaldoDiasPorIdColaborador(idColaborador: number): number {
+   for (let index = 0; index < this.saldos.length; index++) {
+      const element = this.saldos[index];
+      if(element.idColaborador == idColaborador) {
+        return element.diasDisponiveisDeFerias
+      }
+   }
+   return 0;
+  }
+
+  buscarTodosSaldos(): void {
+    this.saldoService.buscarTodosOsSaldos().subscribe((saldos) => this.saldos = saldos);
+  }
 }

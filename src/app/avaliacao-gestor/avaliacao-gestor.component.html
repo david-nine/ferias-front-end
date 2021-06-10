@@ -29,7 +29,7 @@
 
             <div class="dados_requerimento">
               <label for="">Colaborador: </label>
-              <p> </p>
+              <p> {{ requerimento.idColaborador }} </p>
             </div>
 
             <div class="dados_requerimento">
@@ -49,7 +49,7 @@
 
             <div class="dados_requerimento">
               <label for="">Saldo férias: </label>
-              <p></p>
+              <p> {{ buscarSaldoDiasPorIdColaborador(requerimento.idColaborador) }}</p>
             </div>
 
           </div>
