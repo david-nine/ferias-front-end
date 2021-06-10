@@ -56,6 +56,18 @@ export class RequerimentoService {
       );
   }
 
+  buscarTodosRequerimentosPendentes(): Observable<Requerimento[]> {
+    const url = `http://localhost:8080/requerimento/estado/pendente`;
+    return this.http.get<Requerimento[]>(url)
+    .pipe(
+      catchError(
+        this.handleError<Requerimento[]>(
+          'buscarTodosRequerimentosPendentes idColaborador=${idColaborador}', []
+        )
+      )
+    )
+  }
+
   /**
    * Esse metodo precisa ser refatorado.
    * @param idColaborador
@@ -110,7 +122,7 @@ export class RequerimentoService {
   avaliarRequerimento(idRequerimento: number, estado: string): Observable<any> {
     const url = `http://localhost:8080/requerimento/avaliar/${idRequerimento}`;
     return this.http
-      .put(url, estado, this.httpOptions)
+      .put(url, JSON.stringify(estado), this.httpOptions)
       .pipe(catchError(this.handleError<any>('avaliarRequerimento')));
   }
 
