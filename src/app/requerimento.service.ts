@@ -4,6 +4,7 @@ import { catchError, map, tap } from 'rxjs/operators';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Requerimento } from './requerimento';
 import { FormGroup } from '@angular/forms';
+// import { LocalDate } from '@js-joda/core';
 
 @Injectable({
   providedIn: 'root',
@@ -80,7 +81,7 @@ export class RequerimentoService {
 
   criarRequerimento(requerimentoFrom: any): any{
     let requerimento = {
-      dataAbertura: requerimentoFrom.data,
+      dataInicioFerias: requerimentoFrom.data,
       diasRequisitados: requerimentoFrom.diasFerias,
       diasVendidos: requerimentoFrom.dias_abono,
       mensagem: requerimentoFrom.mensagem,
