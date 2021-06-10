@@ -1,10 +1,16 @@
-*{
-    font-family: Ubunto, sans-serif;
-    --main-bg-color: #20c997;
+* {
+    margin: 0%;
+    padding: 0%;
+    --main-bg-color: #f0f0f7;
     --cinza: #e8e4e3;
     outline: 0;
-}
-header{
+  }
+  
+  body {
+    background-color: var(--cinza);
+  }
+  
+  header {
     text-align: center;
     padding: 1%;
     height: 16rem;
@@ -96,6 +102,7 @@ section{
 }
 .cabecalho{
     display: flex;
+    color: black;
     justify-content: space-between;
 }
 body{
