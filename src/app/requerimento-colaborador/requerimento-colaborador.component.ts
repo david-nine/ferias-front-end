@@ -4,7 +4,6 @@ import { Location } from '@angular/common';
 import { SaldoService } from '../saldo.service';
 import { Requerimento } from '../requerimento';
 import { RequerimentoService } from '../requerimento.service';
-import { Requerimento } from '../requerimento';
 import { Saldo } from '../saldo';
 import { from, Observable } from 'rxjs';
 
@@ -43,24 +42,6 @@ export class RequerimentoColaboradorComponent implements OnInit {
 
   ngOnInit(): void {
     debugger;
-  }
-
-  criarRequerimento(requerimentoForm: any): Requerimento {
-    let requerimento: Requerimento = {
-      id: 0,
-      idColaborador: 666,
-      dataAbertura: '2020-05-06',
-      idGestor: 444,
-      dataFechamento: '2020-06-06',
-      prazoAnalise: '2020-05-17',
-      estado: 'PENDENTE',
-      resposta: '',
-      dataInicioFerias: requerimentoForm.data,
-      diasRequisitados: requerimentoForm.diasFerias,
-      diasVendidos: requerimentoForm.dias_abono,
-      mensagem: requerimentoForm.mensagem,
-    }
-    return requerimento;
   }
 
   onSubmit(): void{
