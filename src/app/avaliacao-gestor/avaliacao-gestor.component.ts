@@ -61,7 +61,7 @@ export class AvaliacaoGestorComponent implements OnInit, OnChanges {
     this.saldoService.buscarTodosOsSaldos().subscribe((saldos) => this.saldos = saldos);
   }
 
-  aprovarRequerimento(idRequerimento: number) {
+  aprovarRequerimento(idRequerimento: number, resposta: string) {
     let novoEstado = "APROVADO";
     this.requerimentoService.avaliarRequerimento(idRequerimento, novoEstado).subscribe(res => {
       this.buscarTodosRequerimentos();

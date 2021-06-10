@@ -59,14 +59,14 @@
 
           <div class="footer_form">
 
-            <div class="alert_form">
+            <!-- <div class="alert_form">
               <img src="/assets/images/warning.svg" alt="Preencha todos os campos do requerimento" width="35px"
                 height="35px">
               <p>Importante!<br>Preencha todos os campos.</p>
-            </div>
+            </div> -->
 
             <div class="buttons_form">
-              <button type="button" class="btn btn-outline-info" (click)="aprovarRequerimento(requerimento.id)">Aprovar</button>
+              <button type="button" class="btn btn-outline-info" (click)="aprovarRequerimento(requerimento.id, requerimento.resposta)">Aprovar</button>
               <button type="button" class="btn btn-outline-danger" (click)="recusarRequerimento(requerimento.id)">Recusar</button>
             </div>
 
